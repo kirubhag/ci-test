@@ -1,0 +1,22 @@
+RewriteEngine on
+RewriteBase /block
+
+#If your default controller someting other than
+#"welcome" you should probably change this
+RewriteRule ^(welcome(/index)?|index(\.php)?)/?$ [L,R=301]
+RewriteRule ^(.*)/index/?$ $1 [L,R=301]
+
+#Removing trailing slashes (Prevent the SEO duplicate the content)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ $1 [L,R=301]
+
+#Enforce NO www
+RewriteCond %{HTTP_HOST} ^www [NC]
+RewriteRule ^(.*)$ http://domain.tld/$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
