@@ -14,8 +14,9 @@ RewriteRule ^(.+)/$ $1 [L,R=301]
 RewriteCond %{HTTP_HOST} ^www [NC]
 RewriteRule ^(.*)$ http://domain.tld/$1 [L,R=301]
 
-RewriteCond %{REQUEST_URI} ^system.*
-RewriteRule ^(.*)$ index.php/$1 [L]
+#RewriteCond %{REQUEST_URI} ^system.*
+#RewriteCond %{REQUEST_URI} ^public.*
+#RewriteRule ^(.*)$ index.php/$1 [L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

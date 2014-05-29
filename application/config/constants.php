@@ -12,6 +12,13 @@ if (!defined('BASEPATH'))
  */
 
 define("ERROR_100", "The specified email id is taken already.try another.");
+define("ERROR_101", "There is no such a email id in blog.");
+define("ERROR_102", "Invalid user name / password.");
+define("ERROR_103", "There is no such a user in blog.");
+define("ERROR_104", "Invalid member listouting type.");
+define("ERROR_105", "There is no admin list in blog.");
+define("ERROR_106", "There is no user list in blog.");
+define("ERROR_107", "There is no member list in blog.");
 
 /*
   |--------------------------------------------------------------------------

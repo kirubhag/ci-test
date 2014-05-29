@@ -49,16 +49,16 @@ $smileys = array(
 	':zip:'			=>	array('zip.gif',			'19',	'19',	'zipper'),
 	':kiss:'		=>	array('kiss.gif',			'19',	'19',	'kiss'),
 	':ahhh:'		=>	array('shock.gif',			'19',	'19',	'shock'),
-	':coolsmile:'	=>	array('shade_smile.gif',	'19',	'19',	'cool smile'),
-	':coolsmirk:'	=>	array('shade_smirk.gif',	'19',	'19',	'cool smirk'),
-	':coolgrin:'	=>	array('shade_grin.gif',		'19',	'19',	'cool grin'),
+	':coolsmile:'           =>	array('shade_smile.gif',	'19',	'19',	'cool smile'),
+	':coolsmirk:'           =>	array('shade_smirk.gif',	'19',	'19',	'cool smirk'),
+	':coolgrin:'            =>	array('shade_grin.gif',		'19',	'19',	'cool grin'),
 	':coolhmm:'		=>	array('shade_hmm.gif',		'19',	'19',	'cool hmm'),
 	':coolmad:'		=>	array('shade_mad.gif',		'19',	'19',	'cool mad'),
-	':coolcheese:'	=>	array('shade_cheese.gif',	'19',	'19',	'cool cheese'),
+	':coolcheese:'          =>	array('shade_cheese.gif',	'19',	'19',	'cool cheese'),
 	':vampire:'		=>	array('vampire.gif',		'19',	'19',	'vampire'),
 	':snake:'		=>	array('snake.gif',			'19',	'19',	'snake'),
 	':exclaim:'		=>	array('exclaim.gif',		'19',	'19',	'excaim'),
-	':question:'	=>	array('question.gif',		'19',	'19',	'question') // no comma after last item
+	':question:'            =>	array('question.gif',		'19',	'19',	'question') // no comma after last item
 
 		);
 

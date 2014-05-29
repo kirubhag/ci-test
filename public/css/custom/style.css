@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    font-family:Times New Roman,Georgia,Serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+footer{
+    margin: 0;
+    position: fixed;
+    background-color: #00620C;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+nav{
+    width: 100%;
+    overflow: hidden;
+    text-align: right;
+
+}
+
+.main-nav{
+    margin: 0;
+    background-color: #555555;
+    display: block;
+    height: auto;
+}
+
+.main-nav ul li{ 
+    margin: 0;
+    display: inline;
+    overflow: hidden;
+
+}
+
+.main-nav ul li a{
+    margin: 0;
+    color: #fff;
+}
+
+.admin-nav{
+    margin: 0;
+    background-color: #00620C;
+    display: block;
+}
+
+.admin-nav ul li{    
+    display: inline;
+    padding:20px;
+    overflow: hidden;
+
+}
+
+.admin-nav ul li a{
+    color: #fff;
+}

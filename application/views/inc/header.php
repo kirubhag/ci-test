@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>        
         <title>My Blog</title>
+        <link rel="stylesheet" href="<?php $this->load->helper('url');echo base_url(); ?>public/css/custom/style.css">
     </head>
     <body>
-        <nav>
+        <nav class="main-nav">
             <ul>
-                <li><a href="admin/login" >Admin Login</a></li>
+                <li><a href="login" >Admin Login</a></li>
             </ul>
         </nav>
