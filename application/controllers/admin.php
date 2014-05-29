@@ -21,13 +21,13 @@ class Admin extends CI_Controller {
 
     public function add_admin() {
         if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-//            $email = $_POST['email'];
-//            $password = $_POST['password'];
-            $email = $this->post('email');
-            $password = $this->post('password');exit;
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
             $this->load->model('admin_module');
             if ($this->admin_module->addAdmin($email, $password)) {
-                echo 'Record Added';
+                echo json_encode(array("create_admin" => array("success" => "yes", "error" => "no")));
+            } else {
+                echo json_encode(array("create_admin" => array("success" => "no", "error" => ERROR_100)));
             }
         }
     }

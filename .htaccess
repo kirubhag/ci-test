@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /block
+RewriteBase /ci-test
 
 #If your default controller someting other than
 #"welcome" you should probably change this
