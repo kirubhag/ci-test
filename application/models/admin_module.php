@@ -59,23 +59,22 @@ class Admin_Module extends CI_Model {
         }
     }
 
-    public function getMemberByCategory($jsonName, $fieldName, $value) {
+    public function getMemberByCategory($fieldName, $value) {
         $query = $this->db->get_where("users", [$fieldName => $value]);
         if (count((array) $query->result())) {
-            return json_encode($query->result());
+            return $query->result();
         } else {
             if ($value == 'user') {
-                echo json_encode(array($jsonName => array("success" => "no", "error" => ERROR_106)));
+                return ERROR_106;
             } elseif ($value == "admin") {
-                echo json_encode(array($jsonName => array("success" => "no", "error" => ERROR_105)));
+                return ERROR_105;
             }
-            return 1;
         }
     }
 
-    public function allMemberInBlog($jsonName) {
+    public function allMemberInBlog() {
         $query = $this->db->get("users");
-        echo json_encode(array($jsonName => $query->result()));
+        return $query->result();
     }
 
 }
