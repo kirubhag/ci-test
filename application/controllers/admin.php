@@ -5,6 +5,12 @@ if (!defined('BASEPATH'))
 
 class Admin extends CI_Controller {
 
+    public function __construct() {
+        parent::__construct();
+        $this->load->library('session');
+        $this->load->helper('url');
+    }
+
     public function index() {
         $this->load->view('inc/header');
         $this->load->view('inc/admin_menu');
@@ -57,25 +63,34 @@ class Admin extends CI_Controller {
     }
 
     public function login() {
-        if (!isset($_POST['submit'])) {
-            $this->load->view('inc/header');
-            $this->load->view("admin/login");
-            $this->load->view('inc/footer');
+        if ($this->session->userdata('gatePass')) {
+            redirect(base_url() . "admin", 'refresh');
         } else {
-            if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-                $email = $this->input->post('email');
-                $password = $this->input->post('password');
-                $this->load->model('admin_module');
-                $rs = $this->admin_module->signIn($email, $password);
-                if ($rs == 1) {
-                    $this->load->view('inc/header');
-                    $this->load->view("inc/admin_menu");
-                    $this->load->view('inc/footer');
-                } else {
-                    echo json_encode(array("login" => array("success" => "no", "error" => $rs)));
+            if (!isset($_POST['submit'])) {
+                $this->load->view('inc/header');
+                $this->load->view("admin/login");
+                $this->load->view('inc/footer');
+            } else {
+                if (isset($_POST['submit']) && isset($_POST['email']) && isset($_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+                    $email = $this->input->post('email');
+                    $password = $this->input->post('password');
+                    $this->load->model('admin_module');
+                    $rs = $this->admin_module->signIn($email, $password);
+                    if ($rs == 1) {
+                        $this->session->set_userdata(array("user_id" => $this->admin_module->getSingleValue("users", "id", "email_id", $email), "gatePass" => true));
+                        redirect(base_url() . "admin", 'refresh');
+                    } else {
+                        echo json_encode(array("login" => array("success" => "no", "error" => $rs)));
+                    }
                 }
             }
         }
+    }
+
+    public function logout() {
+        //$this->session->unset_userdata(array('user_id' => '', 'gatePass' => false));
+        $this->session->sess_destroy();
+        redirect(base_url() . "admin/login", 'refresh');
     }
 
     public function delete($userId = false) {

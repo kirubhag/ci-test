@@ -77,4 +77,11 @@ class Admin_Module extends CI_Model {
         return $query->result();
     }
 
+    public function getSingleValue($table, $star, $fieldName, $value) {
+        $this->db->select($star);
+        $this->db->where($fieldName, $value);
+        $q = $this->db->get($table);
+        return array_shift($q->result_array());
+    }
+
 }

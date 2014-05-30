@@ -7,6 +7,6 @@
     <body>
         <nav class="main-nav">
             <ul>
-                <li><a href="login" >Admin Login</a></li>
+                <li><a href="<?php $this->load->helper('url');echo base_url(); ?>admin/login" >Admin Login</a></li>                
             </ul>
         </nav>
