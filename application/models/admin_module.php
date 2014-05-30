@@ -72,6 +72,11 @@ class Admin_Module extends CI_Model {
         }
     }
 
+    public function getCount($table, $fieldName, $value) {
+        $query = $this->db->get_where($table, [$fieldName => $value]);
+        return count((array) $query->result());
+    }
+
     public function allMemberInBlog() {
         $query = $this->db->get("users");
         return $query->result();
@@ -82,6 +87,12 @@ class Admin_Module extends CI_Model {
         $this->db->where($fieldName, $value);
         $q = $this->db->get($table);
         return array_shift($q->result_array());
+    }
+
+    public function getAdminMenuData() {
+        $totalAdmin = $this->getCount("users", "user_type", "admin");
+        $totalUser = $this->getCount("users", "user_type", "user");
+        return array("totalAdmin" => $totalAdmin, "totalUser" => $totalUser);
     }
 
 }
