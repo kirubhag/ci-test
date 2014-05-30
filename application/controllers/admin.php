@@ -17,11 +17,10 @@ class Admin extends CI_Controller {
             $this->load->view('inc/header');
             $adminMenuData = $this->admin_module->getAdminMenuData();
             $this->load->view('inc/admin_menu', ["adminMenuData" => $adminMenuData]);
-            $this->load->view('admin');
+            $this->load->view('admin/index', ["adminMenuData" => $adminMenuData]);
             $this->load->view('inc/footer');
         } else {
             $this->load->view('inc/header');
-            $this->load->view('admin');
             $this->load->view('inc/footer');
         }
     }
@@ -32,8 +31,8 @@ class Admin extends CI_Controller {
         } else {
             if (!isset($_POST['submit'])) {
                 $this->load->view('inc/header');
-            $adminMenuData = $this->admin_module->getAdminMenuData();
-            $this->load->view('inc/admin_menu', ["adminMenuData" => $adminMenuData]);
+                $adminMenuData = $this->admin_module->getAdminMenuData();
+                $this->load->view('inc/admin_menu', ["adminMenuData" => $adminMenuData]);
                 $this->load->view("admin/create_admin");
                 $this->load->view('inc/footer');
             } else {
@@ -56,8 +55,8 @@ class Admin extends CI_Controller {
         } else {
             if (!isset($_POST['submit'])) {
                 $this->load->view('inc/header');
-            $adminMenuData = $this->admin_module->getAdminMenuData();
-            $this->load->view('inc/admin_menu', ["adminMenuData" => $adminMenuData]);
+                $adminMenuData = $this->admin_module->getAdminMenuData();
+                $this->load->view('inc/admin_menu', ["adminMenuData" => $adminMenuData]);
                 $this->load->view("admin/create_user");
                 $this->load->view('inc/footer');
             } else {

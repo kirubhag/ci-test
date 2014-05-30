@@ -103,3 +103,43 @@ nav{
     border-radius: 25px;
     color: #fff;
 }
+
+/*CSS For Info Box*/
+
+.info-box{
+    width: 100%;
+    margin: 0; 
+}
+
+.box-holder{
+    padding-left:10%;
+    padding-right:10%;
+}
+
+.small-individual-box{
+    width: 200px;
+    border-style: solid;
+    display: inline-block;
+    border-radius: 23px;
+    border-width: 4px;
+    text-align: center;
+    background-color: #F1F1F1;
+    padding-left:2%;
+    padding-right:2%;
+}
+
+.small-individual-box:hover{
+    cursor: pointer;
+}
+
+.colorA{
+    border-color:#FC9A24;
+}
+
+.colorB{
+    border-color:#01B7EE;
+}
+
+.colorC{
+    border-color:#6CE26C;
+}
